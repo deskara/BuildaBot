@@ -43,6 +43,29 @@ public class characterController : MonoBehaviour
             die();
         }
     }
+//This is used to fix the bug which causes the player to become unable to jump
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            grounded = true;
+        }
+        else if (collision.gameObject.tag == "conveyerLeft")
+        {
+            conveyerType = "left";
+            grounded = true;
+        }
+        else if (collision.gameObject.tag == "conveyerRight")
+        {
+            conveyerType = "right";
+            grounded = true;
+        }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            die();
+        }
+
+    }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
