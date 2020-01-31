@@ -7,6 +7,10 @@ public class characterController : MonoBehaviour
     GameObject player;
     Rigidbody2D characterBody;
     bool grounded;
+    string conveyerType = "None";
+    float terminalVelocity = -100;
+    float maxJumpSpeed = 100;
+    float maxMoveSpeed = 100;
 
 
     void Start()
@@ -22,6 +26,14 @@ public class characterController : MonoBehaviour
         {
             grounded = true;
         }
+        else if (collision.gameObject.tag == "conveyerLeft")
+        {
+            conveyerType = "left";
+        }
+        else if (collision.gameObject.tag == "conveyerRight")
+        {
+            conveyerType = "right";
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -30,6 +42,14 @@ public class characterController : MonoBehaviour
         if (collision.gameObject.tag == "Platform")
         {
             grounded = false;
+        }
+        else if (collision.gameObject.tag == "conveyerLeft")
+        {
+            conveyerType = "None";
+        }
+        else if (collision.gameObject.tag == "conveyerRight")
+        {
+            conveyerType = "None";
         }
 
     }
@@ -60,6 +80,51 @@ public class characterController : MonoBehaviour
             characterBody.AddForce(rightVector);
 
         }
+
+        //The below two functions handle conveyer belts
+
+        if (conveyerType == "left")
+        {
+            Vector2 leftVector;
+            leftVector = new Vector2(-10, 0);
+            characterBody.AddForce(leftVector);
+
+        }
+
+        if (conveyerType == "right")
+        {
+            Vector2 rightVector;
+            rightVector = new Vector2(10, 0);
+            characterBody.AddForce(rightVector);
+
+        }
+
+        //This one handles capping velocity
+
+        if(characterBody.velocity.y < terminalVelocity)
+        {
+            characterBody.velocity = new Vector2(characterBody.velocity.x, terminalVelocity); 
+        }
+
+        if(characterBody.velocity.y > maxJumpSpeed)
+        {
+            characterBody.velocity = new Vector2(characterBody.velocity.x, maxJumpSpeed);
+
+        }
+
+        if(characterBody.velocity.x < -maxMoveSpeed)
+        {
+            characterBody.velocity = new Vector2(-maxMoveSpeed, characterBody.velocity.y);
+
+        }
+
+        if(characterBody.velocity.x > maxMoveSpeed)
+        {
+            characterBody.velocity = new Vector2(maxMoveSpeed, characterBody.velocity.y);
+
+        }
+
+
 
 
     }
