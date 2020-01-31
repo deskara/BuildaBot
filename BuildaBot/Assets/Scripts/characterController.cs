@@ -16,7 +16,7 @@ public class characterController : MonoBehaviour
 
     void Start()
     {
-        grounded = true;
+        grounded = false;
         characterBody = GetComponent<Rigidbody2D>();
         startPosition = characterBody.position;
     }
@@ -139,8 +139,12 @@ public class characterController : MonoBehaviour
 
     }
 
+
+
     private void die()
     {
+        //Handles player death
+        //Currently they are just reset to their starting position.
         characterBody.position = startPosition;
 
     }
