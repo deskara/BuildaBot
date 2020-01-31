@@ -29,10 +29,12 @@ public class characterController : MonoBehaviour
         else if (collision.gameObject.tag == "conveyerLeft")
         {
             conveyerType = "left";
+            grounded = true;
         }
         else if (collision.gameObject.tag == "conveyerRight")
         {
             conveyerType = "right";
+            grounded = true;
         }
     }
 
@@ -46,10 +48,12 @@ public class characterController : MonoBehaviour
         else if (collision.gameObject.tag == "conveyerLeft")
         {
             conveyerType = "None";
+            grounded = false;
         }
         else if (collision.gameObject.tag == "conveyerRight")
         {
             conveyerType = "None";
+            grounded = false;
         }
 
     }
