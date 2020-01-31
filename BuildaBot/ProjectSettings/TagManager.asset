@@ -9,6 +9,7 @@ TagManager:
   - conveyerRight
   - Enemy
   - jumpEnabler
+  - underPlatform
   layers:
   - Default
   - TransparentFX
@@ -18,11 +19,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Platform
+  - Player
+  - UnderPlatform
+  - Enemy
+  - Pickup
   - 
   - 
   - 
