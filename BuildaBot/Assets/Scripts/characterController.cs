@@ -6,7 +6,7 @@ public class characterController : MonoBehaviour
 {
     GameObject player;
     Rigidbody2D characterBody;
-    Vector2 jumpVector;
+
 
     void Start()
     {
@@ -17,14 +17,29 @@ public class characterController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        jumpVector = new Vector2(0, 500);
-        if (Input.GetKeyDown("space")){
+
+        if (Input.GetKey("space")){
+            Vector2 jumpVector;
+            jumpVector = new Vector2(0, 250);
             characterBody.AddForce(jumpVector);
         }
 
-        if (Input.GetKeyDown("left"))
+        if (Input.GetKey("left"))
         {
+            Vector2 leftVector;
+            leftVector = new Vector2(-10, 0);
+            characterBody.AddForce(leftVector);
 
         }
+
+        if (Input.GetKey("right"))
+        {
+            Vector2 rightVector;
+            rightVector = new Vector2(10, 0);
+            characterBody.AddForce(rightVector);
+
+        }
+
+
     }
 }
