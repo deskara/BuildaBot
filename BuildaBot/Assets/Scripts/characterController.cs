@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class characterController : MonoBehaviour
 {
-    GameObject player;
+
     Rigidbody2D characterBody;
     bool grounded;
     string conveyerType = "None";
