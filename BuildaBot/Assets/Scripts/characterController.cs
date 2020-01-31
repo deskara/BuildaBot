@@ -7,6 +7,7 @@ public class characterController : MonoBehaviour
 
     Rigidbody2D characterBody;
     bool grounded;
+    bool hasJumpFunction = false;
     string conveyerType = "None";
     float terminalVelocity = -100;
     float maxJumpSpeed = 100;
@@ -37,6 +38,11 @@ public class characterController : MonoBehaviour
         {
             conveyerType = "right";
             grounded = true;
+        }
+        else if (collision.gameObject.tag == "jumpEnabler")
+        {
+            hasJumpFunction = true;
+            Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "Enemy")
         {
@@ -92,7 +98,7 @@ public class characterController : MonoBehaviour
     void FixedUpdate()
     {
         //If the user presses space and they are grounded the player goes up into the air.
-        if (Input.GetKey("space") && grounded == true){
+        if (Input.GetKey("space") && grounded == true && hasJumpFunction){
             Vector2 jumpVector;
             jumpVector = new Vector2(0, 250);
             characterBody.AddForce(jumpVector);

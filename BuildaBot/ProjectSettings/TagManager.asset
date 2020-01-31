@@ -8,6 +8,7 @@ TagManager:
   - conveyerLeft
   - conveyerRight
   - Enemy
+  - jumpEnabler
   layers:
   - Default
   - TransparentFX
