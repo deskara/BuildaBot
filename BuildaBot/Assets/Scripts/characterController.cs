@@ -11,12 +11,14 @@ public class characterController : MonoBehaviour
     float terminalVelocity = -100;
     float maxJumpSpeed = 100;
     float maxMoveSpeed = 100;
+    Vector2 startPosition;
 
 
     void Start()
     {
         grounded = true;
         characterBody = GetComponent<Rigidbody2D>();
+        startPosition = characterBody.position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,6 +37,10 @@ public class characterController : MonoBehaviour
         {
             conveyerType = "right";
             grounded = true;
+        }
+        else if(collision.gameObject.tag == "Enemy")
+        {
+            die();
         }
     }
 
@@ -130,6 +136,12 @@ public class characterController : MonoBehaviour
 
 
 
+
+    }
+
+    private void die()
+    {
+        characterBody.position = startPosition;
 
     }
 }
