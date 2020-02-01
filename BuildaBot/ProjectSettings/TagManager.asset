@@ -32,7 +32,7 @@ TagManager:
   - Enemy
   - Pickup
   - playerAttack
-  - 
+  - Background
   - 
   - 
   - 
@@ -51,6 +51,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1609165625
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3728042853
     locked: 0

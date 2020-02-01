@@ -48,6 +48,10 @@ public class characterController : MonoBehaviour
             {
                 grounded = true;
             }
+            else
+            {
+                grounded = false;
+            }
 
 
         }
@@ -89,7 +93,15 @@ public class characterController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Platform")
         {
-            grounded = true;
+            BoxCollider2D footCollider = footBox.GetComponent<BoxCollider2D>();
+            if (footCollider.IsTouching(collision.gameObject.GetComponent<Collider2D>()))
+            {
+                grounded = true;
+            }
+            else
+            {
+                grounded = false;
+            }
         }
         else if (collision.gameObject.tag == "conveyerLeft")
         {
