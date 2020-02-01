@@ -12,6 +12,7 @@ TagManager:
   - underPlatform
   - leftPointer
   - rightPointer
+  - arms
   layers:
   - Default
   - TransparentFX

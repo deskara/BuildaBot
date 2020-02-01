@@ -8,6 +8,7 @@ public class characterController : MonoBehaviour
     Rigidbody2D characterBody;
     bool grounded;
     bool hasJumpFunction = false;
+    bool hasArms = false;
     string conveyerType = "None";
     float terminalVelocity = -100;
     float maxJumpSpeed = 100;
@@ -44,6 +45,12 @@ public class characterController : MonoBehaviour
         {
             hasJumpFunction = true;
             characterAnimator.SetBool("hasLegs", true);
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "arms")
+        {
+            hasArms = true;
+            characterAnimator.SetBool("hasArms", true);
             Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "Enemy")
