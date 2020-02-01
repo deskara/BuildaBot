@@ -7,6 +7,9 @@ public class characterController : MonoBehaviour
 {
     public UnityEvent playerAttacked;
     public UnityEvent attackStopped;
+    public UnityEvent leftflipOccurred;
+    public UnityEvent rightflipOccured;
+    //public GameObject playerComponents;
     SpriteRenderer characterRenderer;
     Animator characterAnimator;
     Rigidbody2D characterBody;
@@ -129,6 +132,7 @@ public class characterController : MonoBehaviour
         {
             characterAnimator.SetBool("isWalking", true);
             characterRenderer.flipX = true;
+            leftflipOccurred.Invoke();
             Vector2 leftVector;
             leftVector = new Vector2(-10, 0);
             characterBody.AddForce(leftVector);
@@ -139,18 +143,14 @@ public class characterController : MonoBehaviour
         {
             characterAnimator.SetBool("isWalking", true);
             characterRenderer.flipX = false;
+            rightflipOccured.Invoke();
             Vector2 rightVector;
             rightVector = new Vector2(10, 0);
             characterBody.AddForce(rightVector);
 
         }
 
-        if (Input.GetMouseButtonDown(0) && hasWeapon == true && isAttacking == false){
-            characterAnimator.SetBool("isAttacking", true);
-            isAttacking = true;
-            playerAttacked.Invoke();
-            Invoke("unsetAttackState", 0.2f);
-        }
+
         //Here I set animation states
 
         if(grounded == false || characterBody.velocity.x == 0)
@@ -223,6 +223,17 @@ public class characterController : MonoBehaviour
 
 
 
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && hasWeapon == true && isAttacking == false && grounded == true)
+        {
+            characterAnimator.SetBool("isAttacking", true);
+            isAttacking = true;
+            playerAttacked.Invoke();
+            Invoke("unsetAttackState", 0.3f);
+        }
     }
 
     private void unsetAttackState()
