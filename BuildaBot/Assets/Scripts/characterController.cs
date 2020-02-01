@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class characterController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class characterController : MonoBehaviour
     public UnityEvent attackStopped;
     public UnityEvent leftflipOccurred;
     public UnityEvent rightflipOccured;
+    public GameObject footBox;
     //public GameObject playerComponents;
     SpriteRenderer characterRenderer;
     Animator characterAnimator;
@@ -19,9 +21,11 @@ public class characterController : MonoBehaviour
     bool hasWeapon = false;
     bool isAttacking = false;
     string conveyerType = "None";
+    int movementspeed = 2;
     public float terminalVelocity = -100;
     public float maxJumpSpeed = 40;
     public float maxMoveSpeed = 20;
+    public float jumpHeight = 7.5f;
     Vector2 startPosition;
 
 
@@ -39,7 +43,13 @@ public class characterController : MonoBehaviour
         //This checks all collisions, if they have the platform tag, the player is set to grounded
         if (collision.gameObject.tag == "Platform")
         {
-            grounded = true;
+            BoxCollider2D footCollider = footBox.GetComponent<BoxCollider2D>();
+            if (footCollider.IsTouching(collision.gameObject.GetComponent<Collider2D>()) )
+            {
+                grounded = true;
+            }
+
+
         }
         else if (collision.gameObject.tag == "conveyerLeft")
         {
@@ -53,6 +63,7 @@ public class characterController : MonoBehaviour
         }
         else if (collision.gameObject.tag == "jumpEnabler")
         {
+            movementspeed = 10;
             hasJumpFunction = true;
             characterAnimator.SetBool("hasLegs", true);
             Destroy(collision.gameObject);
@@ -123,28 +134,28 @@ public class characterController : MonoBehaviour
     {
         //If the user presses space and they are grounded the player goes up into the air.
         if (Input.GetKey("space") && grounded == true && hasJumpFunction){
-            Vector2 newVelocity = new Vector2(characterBody.velocity.x, 7);
+            Vector2 newVelocity = new Vector2(characterBody.velocity.x, jumpHeight);
             characterBody.velocity = newVelocity;
         }
 
-        if (Input.GetKey("left"))
+        if (Input.GetKey("left") && hasJumpFunction == true)
         {
             characterAnimator.SetBool("isWalking", true);
             characterRenderer.flipX = true;
             leftflipOccurred.Invoke();
             Vector2 leftVector;
-            leftVector = new Vector2(-10, 0);
+            leftVector = new Vector2(-movementspeed, 0);
             characterBody.AddForce(leftVector);
 
         }
 
-        if (Input.GetKey("right"))
+        if (Input.GetKey("right") && hasJumpFunction == true)
         {
             characterAnimator.SetBool("isWalking", true);
             characterRenderer.flipX = false;
             rightflipOccured.Invoke();
             Vector2 rightVector;
-            rightVector = new Vector2(10, 0);
+            rightVector = new Vector2(movementspeed, 0);
             characterBody.AddForce(rightVector);
 
         }
@@ -246,8 +257,7 @@ public class characterController : MonoBehaviour
     {
         //Handles player death
         //Currently they are just reset to their starting position.
-        characterBody.position = startPosition;
-        characterBody.velocity = new Vector2(0, 0);
+        SceneManager.LoadScene("botLevel");
 
     }
 }
