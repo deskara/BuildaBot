@@ -17,8 +17,8 @@ public class characterController : MonoBehaviour
     bool isAttacking = false;
     string conveyerType = "None";
     float terminalVelocity = -100;
-    float maxJumpSpeed = 100;
-    float maxMoveSpeed = 100;
+    float maxJumpSpeed = 40;
+    float maxMoveSpeed = 20;
     Vector2 startPosition;
 
 
