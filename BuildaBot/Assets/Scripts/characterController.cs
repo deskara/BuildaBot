@@ -72,6 +72,18 @@ public class characterController : MonoBehaviour
             die();
         }
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "conveyerLeft")
+        {
+            conveyerType = "left";
+        }
+        else if (collision.gameObject.tag == "conveyerRight")
+        {
+            conveyerType = "right";
+        }
+
+    }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
