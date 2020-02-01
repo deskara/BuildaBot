@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7726795488871180375}
   - component: {fileID: 7726795488871180374}
   - component: {fileID: 7726795488871180373}
-  - component: {fileID: 7726795488871180372}
+  - component: {fileID: 8287678796341058861}
   m_Layer: 12
   m_Name: Weapon
   m_TagString: weapon
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cf44e329414ce624c84a4694288ea560, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dda3215cff4132e4e81c2d2d66c5d9f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &7726795488871180372
+--- !u!60 &8287678796341058861
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,16 +129,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.16, y: -0.64}
-      - {x: 0.01, y: -0.64}
-      - {x: 0.01, y: -0.58}
-      - {x: 0, y: -0.39}
-      - {x: -0.01, y: -0.38}
-      - {x: -0.12, y: -0.38}
-      - {x: -0.16, y: -0.39}
-    - - {x: -0.01, y: -0.38}
-      - {x: -0.01, y: -0.59}
-      - {x: 0.02, y: -0.64}
-      - {x: 0.21, y: -0.64}
-      - {x: 0.21, y: -0.57}
-      - {x: 0.13, y: -0.38}
+    - - {x: -0.51, y: -0.44}
+      - {x: -0.51, y: -0.53}
+      - {x: -0.42, y: -0.53}
+      - {x: -0.21, y: -0.34}
+      - {x: -0.21, y: -0.29999998}
+      - {x: -0.31, y: -0.29999998}
+      - {x: -0.47, y: -0.35}
