@@ -13,6 +13,7 @@ TagManager:
   - leftPointer
   - rightPointer
   - arms
+  - weapon
   layers:
   - Default
   - TransparentFX

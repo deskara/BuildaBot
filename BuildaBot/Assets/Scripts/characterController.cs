@@ -10,6 +10,7 @@ public class characterController : MonoBehaviour
     bool grounded;
     bool hasJumpFunction = false;
     bool hasArms = false;
+    bool hasWeapon = false;
     string conveyerType = "None";
     float terminalVelocity = -100;
     float maxJumpSpeed = 100;
@@ -53,6 +54,11 @@ public class characterController : MonoBehaviour
         {
             hasArms = true;
             characterAnimator.SetBool("hasArms", true);
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "weapon")
+        {
+            hasWeapon = true;
             Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "Enemy")
@@ -135,6 +141,13 @@ public class characterController : MonoBehaviour
 
         }
 
+        if (Input.GetMouseButtonDown(0) && hasWeapon == true){
+            characterAnimator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            characterAnimator.SetBool("isAttacking", false);
+        }
         //Here I set animation states
 
         if(grounded == false || characterBody.velocity.x == 0)
