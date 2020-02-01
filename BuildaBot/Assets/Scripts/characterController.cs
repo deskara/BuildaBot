@@ -124,9 +124,29 @@ public class characterController : MonoBehaviour
 
         }
 
+        //Here I set animation states
+
         if(grounded == false || characterBody.velocity.x == 0)
         {
             characterAnimator.SetBool("isWalking", false);
+        }
+
+        if(characterBody.velocity.y > 0)
+        {
+            characterAnimator.SetBool("isAscending", true);
+            characterAnimator.SetBool("isDecending", false);
+        }
+        else if(characterBody.velocity.y < -0.5)
+        {
+            characterAnimator.SetBool("isAscending", false);
+            characterAnimator.SetBool("isDecending", true);
+
+        }
+        else
+        {
+            characterAnimator.SetBool("isAscending", false);
+            characterAnimator.SetBool("isDecending", false);
+
         }
 
         //The below two functions handle conveyer belts
