@@ -250,6 +250,7 @@ public class characterController : MonoBehaviour
         //Handles player death
         //Currently they are just reset to their starting position.
         characterBody.position = startPosition;
+        characterBody.velocity = new Vector2(0, 0);
 
     }
 }
