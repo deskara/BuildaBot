@@ -108,6 +108,7 @@ public class characterController : MonoBehaviour
 
         if (Input.GetKey("left"))
         {
+            characterAnimator.SetBool("isWalking", true);
             Vector2 leftVector;
             leftVector = new Vector2(-10, 0);
             characterBody.AddForce(leftVector);
@@ -116,10 +117,16 @@ public class characterController : MonoBehaviour
 
         if (Input.GetKey("right"))
         {
+            characterAnimator.SetBool("isWalking", true);
             Vector2 rightVector;
             rightVector = new Vector2(10, 0);
             characterBody.AddForce(rightVector);
 
+        }
+
+        if(grounded == false || characterBody.velocity.x == 0)
+        {
+            characterAnimator.SetBool("isWalking", false);
         }
 
         //The below two functions handle conveyer belts
