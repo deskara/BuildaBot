@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class characterController : MonoBehaviour
 {
-
+    Animator characterAnimator;
     Rigidbody2D characterBody;
     bool grounded;
     bool hasJumpFunction = false;
@@ -17,6 +17,7 @@ public class characterController : MonoBehaviour
 
     void Start()
     {
+        characterAnimator = GetComponent<Animator>();
         grounded = false;
         characterBody = GetComponent<Rigidbody2D>();
         startPosition = characterBody.position;
@@ -42,6 +43,7 @@ public class characterController : MonoBehaviour
         else if (collision.gameObject.tag == "jumpEnabler")
         {
             hasJumpFunction = true;
+            characterAnimator.SetBool("hasLegs", true);
             Destroy(collision.gameObject);
         }
         else if(collision.gameObject.tag == "Enemy")

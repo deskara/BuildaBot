@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -266,14 +266,14 @@ MonoBehaviour:
     height: 953
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 17}
   - {fileID: 18}
   - {fileID: 13}
   - {fileID: 12}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 3
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -303,6 +303,7 @@ MonoBehaviour:
   m_ViewTransforms:
     m_KeySerializationHelper:
     - {fileID: -5624814430052875410, guid: 5cd9202ce9ebc97419388f630d55c6cd, type: 2}
+    - {fileID: 63080209299942345, guid: 8c8ab76de2c984641bd833c8cbdb8f92, type: 2}
     m_ValueSerializationHelper:
     - e00: 1
       e01: 0
@@ -312,6 +313,22 @@ MonoBehaviour:
       e11: 1
       e12: 0
       e13: 361.5
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 0.77604336
+      e01: 0
+      e02: 0
+      e03: 268.92413
+      e10: 0
+      e11: 0.77604336
+      e12: 0
+      e13: 93.075935
       e20: 0
       e21: 0
       e22: 1
@@ -416,7 +433,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 0e350000
     m_LastClickedID: 13582
-    m_ExpandedIDs: 00000000043500001035000000ca9a3b
+    m_ExpandedIDs: 000000000435000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -567,9 +584,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 72340000
-      m_LastClickedID: 13426
-      m_ExpandedIDs: c0faffff
+      m_SelectedIDs: 2c340000
+      m_LastClickedID: 13356
+      m_ExpandedIDs: 40fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -629,9 +646,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.1153963, y: 0.88818574, z: -22.539467}
+    m_Target: {x: -5.626469, y: 2.237025, z: -28.896128}
     speed: 2
-    m_Value: {x: 2.909102, y: 0.84668416, z: -22.497227}
+    m_Value: {x: -5.626469, y: 2.237025, z: -28.896128}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -681,9 +698,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.812515
+    m_Target: 9.98968
     speed: 2
-    m_Value: 9.389967
+    m_Value: 9.98968
   m_Ortho:
     m_Target: 1
     speed: 2
