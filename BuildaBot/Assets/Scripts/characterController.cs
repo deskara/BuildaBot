@@ -41,29 +41,13 @@ public class characterController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //This checks all collisions, if they have the platform tag, the player is set to grounded
-        if (collision.gameObject.tag == "Platform")
-        {
-            BoxCollider2D footCollider = footBox.GetComponent<BoxCollider2D>();
-            if (footCollider.IsTouching(collision.gameObject.GetComponent<Collider2D>()) )
-            {
-                grounded = true;
-            }
-            else
-            {
-                grounded = false;
-            }
-
-
-        }
-        else if (collision.gameObject.tag == "conveyerLeft")
+        if (collision.gameObject.tag == "conveyerLeft")
         {
             conveyerType = "left";
-            grounded = true;
         }
         else if (collision.gameObject.tag == "conveyerRight")
         {
             conveyerType = "right";
-            grounded = true;
         }
         else if (collision.gameObject.tag == "jumpEnabler")
         {
@@ -88,54 +72,16 @@ public class characterController : MonoBehaviour
             die();
         }
     }
-//This is used to fix the bug which causes the player to become unable to jump
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Platform")
-        {
-            BoxCollider2D footCollider = footBox.GetComponent<BoxCollider2D>();
-            if (footCollider.IsTouching(collision.gameObject.GetComponent<Collider2D>()))
-            {
-                grounded = true;
-            }
-            else
-            {
-                grounded = false;
-            }
-        }
-        else if (collision.gameObject.tag == "conveyerLeft")
-        {
-            conveyerType = "left";
-            grounded = true;
-        }
-        else if (collision.gameObject.tag == "conveyerRight")
-        {
-            conveyerType = "right";
-            grounded = true;
-        }
-        else if (collision.gameObject.tag == "Enemy")
-        {
-            die();
-        }
-
-    }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //This checks all collision exits, if they used to have the platform tag then the player is no longer grounded
-        if (collision.gameObject.tag == "Platform")
-        {
-            grounded = false;
-        }
-        else if (collision.gameObject.tag == "conveyerLeft")
+        if (collision.gameObject.tag == "conveyerLeft")
         {
             conveyerType = "None";
-            grounded = false;
         }
         else if (collision.gameObject.tag == "conveyerRight")
         {
             conveyerType = "None";
-            grounded = false;
         }
 
     }
@@ -144,6 +90,17 @@ public class characterController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Input.GetKey("f"))
+        {
+            if (grounded)
+            {
+                Debug.Log("Player Grounded");
+            }
+            else
+            {
+                Debug.Log("Player Airbourne");
+            }
+        }
         //If the user presses space and they are grounded the player goes up into the air.
         if (Input.GetKey("space") && grounded == true && hasJumpFunction){
             Vector2 newVelocity = new Vector2(characterBody.velocity.x, jumpHeight);
@@ -256,6 +213,14 @@ public class characterController : MonoBehaviour
             playerAttacked.Invoke();
             Invoke("unsetAttackState", 0.3f);
         }
+    }
+    public void setGrounded()
+    {
+        grounded = true;
+    }
+    public void setUngrounded()
+    {
+        grounded = false;
     }
 
     private void unsetAttackState()

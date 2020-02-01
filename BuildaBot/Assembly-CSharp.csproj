@@ -64,11 +64,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\SceneController.cs" />
     <Compile Include="Assets\Scripts\attackAreaScript.cs" />
     <Compile Include="Assets\Scripts\cameraScript.cs" />
     <Compile Include="Assets\Scripts\characterController.cs" />
     <Compile Include="Assets\Scripts\enemyMovement.cs" />
     <Compile Include="Assets\Scripts\enemyScript.cs" />
+    <Compile Include="Assets\Scripts\footBoxScript.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/mgorle/Documents/GitHub/BuildaBot/BuildaBot/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
