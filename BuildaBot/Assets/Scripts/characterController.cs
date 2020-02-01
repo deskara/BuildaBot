@@ -123,10 +123,7 @@ public class characterController : MonoBehaviour
     {
         //If the user presses space and they are grounded the player goes up into the air.
         if (Input.GetKey("space") && grounded == true && hasJumpFunction){
-            //Vector2 jumpVector;
-            //jumpVector = new Vector2(0, 250);
-            //characterBody.AddForce(jumpVector);
-            Vector2 newVelocity = new Vector2(characterBody.velocity.x, 6);
+            Vector2 newVelocity = new Vector2(characterBody.velocity.x, 7);
             characterBody.velocity = newVelocity;
         }
 
