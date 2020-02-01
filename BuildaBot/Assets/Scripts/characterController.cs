@@ -14,6 +14,7 @@ public class characterController : MonoBehaviour
     bool hasJumpFunction = false;
     bool hasArms = false;
     bool hasWeapon = false;
+    bool isAttacking = false;
     string conveyerType = "None";
     float terminalVelocity = -100;
     float maxJumpSpeed = 100;
@@ -144,14 +145,11 @@ public class characterController : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonDown(0) && hasWeapon == true){
+        if (Input.GetMouseButtonDown(0) && hasWeapon == true && isAttacking == false){
             characterAnimator.SetBool("isAttacking", true);
+            isAttacking = true;
             playerAttacked.Invoke();
-        }
-        else
-        {
-            characterAnimator.SetBool("isAttacking", false);
-            attackStopped.Invoke();
+            Invoke("unsetAttackState", 0.2f);
         }
         //Here I set animation states
 
@@ -227,7 +225,12 @@ public class characterController : MonoBehaviour
 
     }
 
-
+    private void unsetAttackState()
+    {
+        characterAnimator.SetBool("isAttacking", false);
+        isAttacking = false;
+        attackStopped.Invoke();
+    }
 
     private void die()
     {
