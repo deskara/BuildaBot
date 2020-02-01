@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class enemyScript : MonoBehaviour
 {
-
     Rigidbody2D characterBody;
     string conveyerType = "None";
     float terminalVelocity = -100;
@@ -13,14 +12,15 @@ public class enemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+   
         characterBody = GetComponent<Rigidbody2D>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //This checks all collisions, if they have the platform tag, the player is set to grounded
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "playerAttack")
         {
-
+            die();
         }
         else if (collision.gameObject.tag == "conveyerLeft")
         {
@@ -34,11 +34,7 @@ public class enemyScript : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //This checks all collision exits, if they used to have the platform tag then the player is no longer grounded
-        if (collision.gameObject.tag == "Platform")
-        {
-        }
-        else if (collision.gameObject.tag == "conveyerLeft")
+        if (collision.gameObject.tag == "conveyerLeft")
         {
             conveyerType = "None";
         }
@@ -102,7 +98,7 @@ public class enemyScript : MonoBehaviour
 
     private void die()
     {
-        Destroy(this);
+        Destroy(gameObject);
 
     }
 }

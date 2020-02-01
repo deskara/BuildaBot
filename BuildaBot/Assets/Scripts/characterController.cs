@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class characterController : MonoBehaviour
 {
+    public UnityEvent playerAttacked;
+    public UnityEvent attackStopped;
     SpriteRenderer characterRenderer;
     Animator characterAnimator;
     Rigidbody2D characterBody;
@@ -143,10 +146,12 @@ public class characterController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && hasWeapon == true){
             characterAnimator.SetBool("isAttacking", true);
+            playerAttacked.Invoke();
         }
         else
         {
             characterAnimator.SetBool("isAttacking", false);
+            attackStopped.Invoke();
         }
         //Here I set animation states
 
