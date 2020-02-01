@@ -15,6 +15,8 @@ TagManager:
   - arms
   - weapon
   - playerAttack
+  - upPointer
+  - downPointer
   layers:
   - Default
   - TransparentFX

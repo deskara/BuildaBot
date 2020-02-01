@@ -5,9 +5,9 @@ using UnityEngine;
 public class enemyMovement : MonoBehaviour
 {
     Rigidbody2D characterBody;
+    public int enemySpeed;
     public string startingDirection = "left";
-    bool touchedLeft = false;
-    bool touchedRight = false;
+    bool touchedLeft = false, touchedRight = false,touchedUp = false,touchedDown = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +32,22 @@ public class enemyMovement : MonoBehaviour
             startingDirection = "";
 
         }
+        else if (collision.gameObject.tag == "upPointer")
+        {
+            characterBody.velocity = new Vector2(0, 0);
+            touchedUp = true;
+            touchedDown = false;
+            startingDirection = "";
+
+        }
+        else if (collision.gameObject.tag == "downPointer")
+        {
+            characterBody.velocity = new Vector2(0, 0);
+            touchedUp = false;
+            touchedDown = true;
+            startingDirection = "";
+
+        }
 
     }
 
@@ -40,20 +56,22 @@ public class enemyMovement : MonoBehaviour
     {
         if(touchedLeft == true || startingDirection == "left")
         {
-            //Vector2 leftVector;
-            //leftVector = new Vector2(-3, 0);
-            //characterBody.AddForce(leftVector);
-            characterBody.velocity = new Vector2(-3, 0);
+            characterBody.velocity = new Vector2(-enemySpeed, characterBody.velocity.y);
 
 
         }
         else if(touchedRight == true || startingDirection == "right")
         {
-            //Vector2 rightVector;
-            //rightVector = new Vector2(3, 0);
-            //characterBody.AddForce(rightVector);
-            characterBody.velocity = new Vector2(3, 0);
+            characterBody.velocity = new Vector2(enemySpeed, characterBody.velocity.y);
 
+        }
+        if (touchedUp == true || startingDirection == "up")
+        {
+            characterBody.velocity = new Vector2(characterBody.velocity.x,enemySpeed);
+        }
+        else if(touchedDown == true || startingDirection == "down")
+        {
+            characterBody.velocity = new Vector2(characterBody.velocity.x, -enemySpeed);
         }
     }
 }
