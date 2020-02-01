@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class characterController : MonoBehaviour
 {
+    SpriteRenderer characterRenderer;
     Animator characterAnimator;
     Rigidbody2D characterBody;
     bool grounded;
@@ -18,6 +19,7 @@ public class characterController : MonoBehaviour
 
     void Start()
     {
+        characterRenderer = GetComponent<SpriteRenderer>();
         characterAnimator = GetComponent<Animator>();
         grounded = false;
         characterBody = GetComponent<Rigidbody2D>();
@@ -116,6 +118,7 @@ public class characterController : MonoBehaviour
         if (Input.GetKey("left"))
         {
             characterAnimator.SetBool("isWalking", true);
+            characterRenderer.flipX = true;
             Vector2 leftVector;
             leftVector = new Vector2(-10, 0);
             characterBody.AddForce(leftVector);
@@ -125,6 +128,7 @@ public class characterController : MonoBehaviour
         if (Input.GetKey("right"))
         {
             characterAnimator.SetBool("isWalking", true);
+            characterRenderer.flipX = false;
             Vector2 rightVector;
             rightVector = new Vector2(10, 0);
             characterBody.AddForce(rightVector);
@@ -138,12 +142,13 @@ public class characterController : MonoBehaviour
             characterAnimator.SetBool("isWalking", false);
         }
 
-        if(characterBody.velocity.y > 0)
+
+        if (characterBody.velocity.y > 0 && grounded == false)
         {
             characterAnimator.SetBool("isAscending", true);
             characterAnimator.SetBool("isDecending", false);
         }
-        else if(characterBody.velocity.y < -0.5)
+        else if(characterBody.velocity.y < 0 && grounded == false)
         {
             characterAnimator.SetBool("isAscending", false);
             characterAnimator.SetBool("isDecending", true);
