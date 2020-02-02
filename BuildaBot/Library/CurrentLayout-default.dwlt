@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 613}
   m_MaxSize: {x: 14002, y: 18063}
   vertical: 0
-  controlID: 208
+  controlID: 209
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 613}
   m_MaxSize: {x: 10001, y: 18063}
   vertical: 1
-  controlID: 131
+  controlID: 38
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 342}
   m_MaxSize: {x: 8003, y: 8042}
   vertical: 0
-  controlID: 132
+  controlID: 39
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,8 +317,8 @@ MonoBehaviour:
     y: 0
     width: 615
     height: 1307
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -442,9 +442,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 6af8ffff6cfbffff
+      m_SelectedIDs: 10360000
+      m_LastClickedID: 13840
+      m_ExpandedIDs: 62eaffff6cfbffffb2350000ec350000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -499,14 +499,14 @@ MonoBehaviour:
     - {fileID: -5624814430052875410, guid: 5cd9202ce9ebc97419388f630d55c6cd, type: 2}
     - {fileID: 63080209299942345, guid: 8c8ab76de2c984641bd833c8cbdb8f92, type: 2}
     m_ValueSerializationHelper:
-    - e00: 1
+    - e00: 0.5726316
       e01: 0
       e02: 0
-      e03: 25
+      e03: -13.631592
       e10: 0
-      e11: 1
+      e11: 0.5726316
       e12: 0
-      e13: 44
+      e13: 154.82631
       e20: 0
       e21: 0
       e22: 1
@@ -515,14 +515,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.7022397
+    - e00: 0.4121212
       e01: 0
       e02: 0
-      e03: 70.224
+      e03: 80.93938
       e10: 0
-      e11: 0.7022397
+      e11: 0.4121212
       e12: 0
-      e13: 126.403336
+      e13: 156.10608
       e20: 0
       e21: 0
       e22: 1
@@ -611,9 +611,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 90.05575, y: 6.143521, z: -117.84956}
+    m_Target: {x: 45.45077, y: -12.48113, z: -136.65077}
     speed: 2
-    m_Value: {x: 90.05575, y: 6.143521, z: -117.84956}
+    m_Value: {x: 45.552673, y: -12.268933, z: -136.54163}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -663,9 +663,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 161.21193
+    m_Target: 25.348175
     speed: 2
-    m_Value: 161.21193
+    m_Value: 24.256626
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -729,20 +729,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\mgorle\Documents\GitHub\BuildaBot\BuildaBot
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b8380000
-    m_LastClickedID: 14520
-    m_ExpandedIDs: 00000000a4380000a638000000ca9a3b
+    m_SelectedIDs: c4380000
+    m_LastClickedID: 14532
+    m_ExpandedIDs: 00000000b4380000b638000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -770,7 +770,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a4380000a6380000
+    m_ExpandedIDs: 00000000b4380000b6380000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -797,7 +797,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000202e0000802e00000c2f00000e2f0000f62d000072300000102f0000162f0000ea2d0000482f00005a2f000030330000682e00006c2e000034310000b0450000ac2d0000ae3100003c2e0000ae30000074310000ba2e000092300000243e000056360000d83600007638000086370000183500007e36000022360000503a0000743a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
