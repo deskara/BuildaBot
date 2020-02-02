@@ -72,6 +72,10 @@ public class characterController : MonoBehaviour
         {
             die();
         }
+        else if(collision.gameObject.tag == "exit")
+        {
+            reachExit();
+        }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -269,5 +273,10 @@ public class characterController : MonoBehaviour
         //Currently they are just reset to their starting position.
         SceneManager.LoadScene("botLevel");
 
+    }
+
+    private void reachExit()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

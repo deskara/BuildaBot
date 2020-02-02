@@ -18,6 +18,7 @@ TagManager:
   - upPointer
   - downPointer
   - buttonAura
+  - exit
   layers:
   - Default
   - TransparentFX
