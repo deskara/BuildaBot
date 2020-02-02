@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class liftController : MonoBehaviour
 {
+    public GameObject button;
     Rigidbody2D liftBody;
     public int liftSpeed;
     public string startingDirection = "up";
@@ -54,5 +55,7 @@ public class liftController : MonoBehaviour
     public void setButtonPressed()
     {
         buttonPressed = true;
+        AudioSource buttonAudio = button.GetComponent<AudioSource>();
+        buttonAudio.Play();
     }
 }
