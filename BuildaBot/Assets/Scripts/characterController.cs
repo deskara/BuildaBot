@@ -27,11 +27,15 @@ public class characterController : MonoBehaviour
     public float maxJumpSpeed = 40;
     public float maxMoveSpeed = 20;
     public float jumpHeight = 7.5f;
+    float timeOnBelt;
+    float timePassed;
+    Vector2 currentPosition;
     Vector2 startPosition;
 
 
     void Start()
     {
+        timePassed = Time.time;
         characterRenderer = GetComponent<SpriteRenderer>();
         characterAnimator = GetComponent<Animator>();
         grounded = false;
@@ -49,6 +53,7 @@ public class characterController : MonoBehaviour
         else if (collision.gameObject.tag == "conveyerRight")
         {
             conveyerType = "right";
+            timeOnBelt = timePassed;
         }
         else if (collision.gameObject.tag == "jumpEnabler")
         {
@@ -86,6 +91,13 @@ public class characterController : MonoBehaviour
         else if (collision.gameObject.tag == "conveyerRight")
         {
             conveyerType = "right";
+
+            if(timePassed - timeOnBelt == 1)
+            {
+                characterBody.position = new Vector2(characterBody.position.x, characterBody.position.y+0.02f);
+                Rigidbody2D conveyerBelt = collision.gameObject.GetComponent<Rigidbody2D>();
+                conveyerBelt.position = new Vector2(conveyerBelt.position.x, conveyerBelt.position.y + 0.02f);
+            }
         }
 
     }
@@ -123,17 +135,8 @@ public class characterController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey("f"))
-        {
-            if (grounded)
-            {
-                Debug.Log("Player Grounded");
-            }
-            else
-            {
-                Debug.Log("Player Airbourne");
-            }
-        }
+        currentPosition = characterBody.position;
+        timePassed = Time.time;
         //If the user presses space and they are grounded the player goes up into the air.
         if (Input.GetKey("space") && grounded == true && hasJumpFunction){
             Vector2 newVelocity = new Vector2(characterBody.velocity.x, jumpHeight);
