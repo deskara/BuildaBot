@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\enemyScript.cs" />
     <Compile Include="Assets\Scripts\footBoxScript.cs" />
     <Compile Include="Assets\Scripts\liftController.cs" />
+    <Compile Include="Assets\Scripts\pauseMenu.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/mgorle/Documents/GitHub/BuildaBot/BuildaBot/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

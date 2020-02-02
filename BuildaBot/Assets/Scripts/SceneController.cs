@@ -11,6 +11,11 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("botLevel");
     }
 
+    public void BackToMainMenu()
+    {
+
+    }
+
     public void ExitGame()
     {
         Application.Quit();
