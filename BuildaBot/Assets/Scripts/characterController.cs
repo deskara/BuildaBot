@@ -10,8 +10,8 @@ public class characterController : MonoBehaviour
     public UnityEvent attackStopped;
     public UnityEvent leftflipOccurred;
     public UnityEvent rightflipOccured;
+    public UnityEvent buttonPressed;
     public GameObject footBox;
-    //public GameObject playerComponents;
     SpriteRenderer characterRenderer;
     Animator characterAnimator;
     Rigidbody2D characterBody;
@@ -20,6 +20,7 @@ public class characterController : MonoBehaviour
     bool hasArms = false;
     bool hasWeapon = false;
     bool isAttacking = false;
+    bool nearButton = false;
     string conveyerType = "None";
     int movementspeed = 2;
     public float terminalVelocity = -100;
@@ -94,6 +95,22 @@ public class characterController : MonoBehaviour
         else if (collision.gameObject.tag == "conveyerRight")
         {
             conveyerType = "None";
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "buttonAura")
+        {
+            nearButton = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "buttonAura")
+        {
+            nearButton = false;
         }
 
     }
@@ -218,6 +235,10 @@ public class characterController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0) && nearButton == true && hasArms == true)
+        {
+            buttonPressed.Invoke();
+        }
         if (Input.GetMouseButtonDown(0) && hasWeapon == true && isAttacking == false && grounded == true)
         {
             characterAnimator.SetBool("isAttacking", true);
