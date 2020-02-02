@@ -15,11 +15,22 @@ public class pauseMenu : MonoBehaviour
             if(isPaused == false)
             {
                 pauseGame.Invoke();
+                isPaused = true;
             }
             else
             {
+                isPaused = false;
                 unPauseGame.Invoke();
             }
         }
+    }
+
+    public void pauseGameFunction()
+    {
+        Time.timeScale = 0;
+    }
+    public void unPauseGameFunction()
+    {
+        Time.timeScale = 1;
     }
 }
